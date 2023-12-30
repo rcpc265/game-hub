@@ -4,7 +4,7 @@ import useGames from "@/hooks/useGames";
 
 const GameGrid = () => {
   const { data: games, error, isLoading } = useGames();
-  const skeletons = Array.from({ length: 10 }).map((_, index) => (
+  const skeletons = Array.from({ length: 20 }).map((_, index) => (
     <GameCardSkeleton key={index} />
   ));
 
