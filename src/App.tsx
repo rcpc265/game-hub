@@ -1,5 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
+import NavBar from "@/components/NavBar";
 
 const App = () => {
   return (
