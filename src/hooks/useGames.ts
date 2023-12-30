@@ -1,4 +1,4 @@
-import apiClient from "@/services/apiClient";
+import apiClient from "@/services/api-client";
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
