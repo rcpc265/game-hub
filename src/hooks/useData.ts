@@ -7,6 +7,16 @@ interface FetchResponse<T> {
   results: T[];
 }
 
+/**
+ * @description
+ * Hook to fetch data from an endpoint
+ * @param endpoint
+ * @param requestConfig
+ * @param deps
+ * @returns
+ * @example
+ * const { data, error, isLoading } = useData<DataType>(endpoint, requestConfig, [deps]);
+ **/
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,

@@ -21,6 +21,18 @@ export interface GameQuery {
   sortOrder: string;
 }
 
+/**
+ * @description
+ * Hook to fetch games
+ * @param {Object} gameQuery - The query parameters for fetching games.
+ * @param {Genre | null} gameQuery.genre - The genre of the games to fetch.
+ * @param {Platform | null} gameQuery.platform - The platform of the games to fetch.
+ * @param {string} gameQuery.sortOrder - The order in which to sort the fetched games.
+ * @returns {Object} An object containing the fetched data, any error occurred, and the loading state.
+ * @example
+ * const { data, error, isLoading } = useGames(gameQuery);
+ */
+
 const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
