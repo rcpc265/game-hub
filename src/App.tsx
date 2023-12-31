@@ -1,11 +1,10 @@
-import NavBar from "@/components/NavBar";
-import PlatformSelector from "./components/PlatformSelector";
 import { GameGrid } from "@/components/Game";
 import { GenreList } from "@/components/Genre";
 import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import { GameQuery } from "./hooks/useGames";
 import { useState } from "react";
-import SortSelector from "./components/SortSelector";
+import { PlatformSelector, SortSelector } from "./components/Filters";
+import { NavBar } from "./components/NavBar";
+import { GameQuery } from "./hooks/useGames";
 
 const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
