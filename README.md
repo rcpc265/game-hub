@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# Game Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a portfolio project showcasing a dynamic web application for video game enthusiasts. The application provides a platform for users to explore a wide variety of games, filter them based on different platforms, and sort them according to their preferences. It also includes a search functionality for users to find specific games. Each game is presented with detailed information and a rating system for users to gauge the popularity and reception of the games.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React: A JavaScript library for building user interfaces.
+- TypeScript: A typed superset of JavaScript that adds static types.
+- Axios: A promise-based HTTP client for the browser and Node.js.
+- ESLint: A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+- Vite: A build tool that aims to provide a faster and leaner development experience for modern web projects.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To get a local copy up and running, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/rcpc265/game-hub.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install the dependencies:
+
+```bash
+npm install
+```
+
+3. Get your own API key from [RAWG](https://rawg.io/apidocs). It's free! Once you have it, copy the `.env.example` file and rename it to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Then, open the .env file and replace your-api-key with your actual RAWG API key:
+
+```bash
+VITE_API_KEY=your-api-key
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+5. Build for production:
+
+```bash
+npm run build
+```
+
+6. Build and preview the production build locally:
+
+```bash
+npm run preview
+```
+
+Enjoy the app!
