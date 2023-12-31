@@ -22,7 +22,14 @@ const App = () => {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) =>
+            setGameQuery((currentGameQuery) => ({
+              ...currentGameQuery,
+              searchText,
+            }))
+          }
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
@@ -49,7 +56,7 @@ const App = () => {
             }
           />
           <SortSelector
-          sortOrder={gameQuery.sortOrder}
+            sortOrder={gameQuery.sortOrder}
             onSelectSort={(sortOrder) =>
               setGameQuery((currentGameQuery) => ({
                 ...currentGameQuery,
