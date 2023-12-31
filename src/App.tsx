@@ -48,7 +48,15 @@ const App = () => {
               }))
             }
           />
-          <SortSelector />
+          <SortSelector
+            sortOrder={gameQuery.sortOrder}
+            onSelectSort={(sortOrder) =>
+              setGameQuery((currentGameQuery) => ({
+                ...currentGameQuery,
+                sortOrder,
+              }))
+            }
+          />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
