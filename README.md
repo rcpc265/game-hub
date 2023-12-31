@@ -1,5 +1,7 @@
 # Game Portfolio
 
+![Screenshot of the app](./src/assets/screenshot.png)
+
 This is a portfolio project showcasing a dynamic web application for video game enthusiasts. The application provides a platform for users to explore a wide variety of games, filter them based on different platforms, and sort them according to their preferences. It also includes a search functionality for users to find specific games. Each game is presented with detailed information and a rating system for users to gauge the popularity and reception of the games.
 
 ## Technologies Used
