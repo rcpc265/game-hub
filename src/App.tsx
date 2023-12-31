@@ -49,7 +49,7 @@ const App = () => {
             }
           />
           <SortSelector
-            sortOrder={gameQuery.sortOrder}
+          sortOrder={gameQuery.sortOrder}
             onSelectSort={(sortOrder) =>
               setGameQuery((currentGameQuery) => ({
                 ...currentGameQuery,
