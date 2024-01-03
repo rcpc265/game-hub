@@ -1,16 +1,23 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
 import { GameCard, GameCardSkeleton } from "@/components/Game";
 import useGames, { GameQuery } from "@/hooks/useGames";
+import useInfiniteScroll from "@/hooks/useInfiniteScroll";
+import { HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 
 interface Props {
   gameQuery: GameQuery;
 }
 
-const GameGrid = ({ gameQuery }: Props) => {
-  const { data: games, error, isLoading } = useGames(gameQuery);
-  const skeletons = Array.from({ length: 20 }).map((_, index) => (
+const Skeletons = ({ count = 20 }) =>
+  Array.from({ length: count }).map((_, index) => (
     <GameCardSkeleton key={index} />
   ));
+
+const GameGrid = ({ gameQuery }: Props) => {
+  const { data, error, fetchNextPage, hasNextPage, isLoading } =
+    useGames(gameQuery);
+  const games = data?.pages.flatMap((page) => page.results);
+
+  const { ref } = useInfiniteScroll({ hasNextPage, fetchNextPage });
 
   if (error) return <Text>{error.message}</Text>;
 
@@ -21,11 +28,24 @@ const GameGrid = ({ gameQuery }: Props) => {
         padding="10px"
         spacing={6}
       >
-        {isLoading && skeletons}
+        {isLoading && <Skeletons />}
         {games?.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>
+      <HStack justifyContent="center" ref={ref}>
+        {hasNextPage && (
+          <Spinner
+            mt={10}
+            mb="500px"
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="gray.500"
+            size="xl"
+          />
+        )}
+      </HStack>
     </>
   );
 };

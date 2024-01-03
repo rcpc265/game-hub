@@ -5,9 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 const usePlatforms = () =>
   useQuery({
     queryKey: ["platforms"],
-    queryFn: () => platformService.getAll(),
+    queryFn: platformService.getAll,
     staleTime: 10 * 1000,
-    initialData: platforms,
+    initialData: { count: platforms.length, results: platforms, next: null },
   });
 
 export default usePlatforms;
