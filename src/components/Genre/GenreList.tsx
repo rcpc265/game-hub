@@ -6,10 +6,10 @@ import type { Genre } from "@/services/genreService";
 
 export interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const {
     data: { results: genres },
     isLoading,
@@ -27,7 +27,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
         {isLoading && skeletons}
         {genres?.map((genre) => (
           <GenreItem
-            selectedGenre={selectedGenre}
+            selectedGenreId={selectedGenreId}
             onSelectGenre={onSelectGenre}
             key={genre.id}
             genre={genre}

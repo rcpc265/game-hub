@@ -13,9 +13,11 @@ import { GenreListProps } from "./GenreList";
 
 interface Props extends GenreListProps {
   genre: Genre;
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenreId?: number;
 }
 
-const GenreItem = ({ genre, onSelectGenre, selectedGenre }: Props) => {
+const GenreItem = ({ genre, onSelectGenre, selectedGenreId }: Props) => {
   const { isOverflow, textRef } = useIsOverflow([genre.name]);
 
   return (
@@ -28,7 +30,7 @@ const GenreItem = ({ genre, onSelectGenre, selectedGenre }: Props) => {
           src={transformToCroppedImageUrl(genre.image_background)}
         />
         <Button
-          fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+          fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
           onClick={() => onSelectGenre(genre)}
           fontSize="lg"
           variant="link"

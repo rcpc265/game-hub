@@ -34,12 +34,14 @@ const App = () => {
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList
-            selectedGenre={gameQuery.genre}
+            selectedGenreId={gameQuery.genreId}
             onSelectGenre={(genre) =>
-              setGameQuery((currentGameQuery) => ({
-                ...currentGameQuery,
-                genre,
-              }))
+              setGameQuery(
+                (currentGameQuery): GameQuery => ({
+                  ...currentGameQuery,
+                  genreId: genre.id,
+                })
+              )
             }
           />
         </GridItem>
@@ -50,12 +52,14 @@ const App = () => {
           <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
                 onSelectPlatform={(platform) =>
-                  setGameQuery((currentGameQuery) => ({
-                    ...currentGameQuery,
-                    platform,
-                  }))
+                  setGameQuery(
+                    (currentGameQuery): GameQuery => ({
+                      ...currentGameQuery,
+                      platformId: platform.id,
+                    })
+                  )
                 }
               />
             </Box>
