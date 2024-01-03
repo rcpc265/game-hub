@@ -3,7 +3,7 @@ import {
   GameCardContainer,
   PlatformIconList,
 } from "@/components/Game";
-import type { Game } from "@/hooks/useGames";
+import type { Game } from "@/services/gameService";
 import transformToCroppedImageUrl from "@/services/image-url";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 

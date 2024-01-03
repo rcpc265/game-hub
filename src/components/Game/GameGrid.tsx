@@ -12,7 +12,7 @@ const GameGrid = ({ gameQuery }: Props) => {
     <GameCardSkeleton key={index} />
   ));
 
-  if (error) return <Text>{error}</Text>
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <>
@@ -22,7 +22,7 @@ const GameGrid = ({ gameQuery }: Props) => {
         spacing={6}
       >
         {isLoading && skeletons}
-        {games.map((game) => (
+        {games?.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>

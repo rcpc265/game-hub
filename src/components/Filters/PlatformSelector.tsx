@@ -1,5 +1,5 @@
-import { Platform } from "@/hooks/useGames";
 import usePlatforms from "@/hooks/usePlatforms";
+import { Platform } from "@/services/platformService";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
@@ -17,7 +17,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {platforms.map((platform) => (
+        {platforms?.map((platform) => (
           <MenuItem
             fontWeight={
               platform.id === selectedPlatform?.id ? "bold" : "normal"

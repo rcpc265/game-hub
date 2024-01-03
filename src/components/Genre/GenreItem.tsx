@@ -1,15 +1,15 @@
-import { Genre } from "@/hooks/useGenres";
+import useIsOverflow from "@/hooks/useIsOverflow";
+import type { Genre } from "@/services/genreService";
 import transformToCroppedImageUrl from "@/services/image-url";
 import {
-  ListItem,
+  Box,
+  Button,
   HStack,
   Image,
-  Button,
-  Box,
+  ListItem,
   Tooltip,
 } from "@chakra-ui/react";
 import { GenreListProps } from "./GenreList";
-import useIsOverflow from "@/hooks/useIsOverflow";
 
 interface Props extends GenreListProps {
   genre: Genre;

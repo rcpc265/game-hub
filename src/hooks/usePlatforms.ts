@@ -1,11 +1,13 @@
 import platforms from "@/data/platforms";
+import platformService from "@/services/platformService";
+import { useQuery } from "@tanstack/react-query";
 
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-const usePlatforms = () => ({ data: platforms, isLoading: false, error: null });
+const usePlatforms = () =>
+  useQuery({
+    queryKey: ["platforms"],
+    queryFn: () => platformService.getAll(),
+    staleTime: 10 * 1000,
+    initialData: platforms,
+  });
 
 export default usePlatforms;
