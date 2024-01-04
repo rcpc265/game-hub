@@ -1,6 +1,7 @@
 import useIsOverflow from "@/hooks/useIsOverflow";
 import type { Genre } from "@/services/genreService";
 import transformToCroppedImageUrl from "@/services/image-url";
+import useGameQueryStore from "@/store";
 import {
   Box,
   Button,
@@ -9,15 +10,15 @@ import {
   ListItem,
   Tooltip,
 } from "@chakra-ui/react";
-import { GenreListProps } from "./GenreList";
 
-interface Props extends GenreListProps {
+interface Props {
   genre: Genre;
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
 }
 
-const GenreItem = ({ genre, onSelectGenre, selectedGenreId }: Props) => {
+const GenreItem = ({ genre }: Props) => {
+  const selectedGenreId = useGameQueryStore((state) => state.gameQuery.genreId);
+  const setGenreId = useGameQueryStore((state) => state.setGenreId);
+
   const { isOverflow, textRef } = useIsOverflow([genre.name]);
 
   return (
@@ -31,7 +32,7 @@ const GenreItem = ({ genre, onSelectGenre, selectedGenreId }: Props) => {
         />
         <Button
           fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
-          onClick={() => onSelectGenre(genre)}
+          onClick={() => setGenreId(genre.id)}
           fontSize="lg"
           variant="link"
         >
