@@ -29,7 +29,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           {hasNextPage && (
             <Spinner
               mt={10}
-              mb="500px"
+              mb="300px"
               thickness="4px"
               speed="0.65s"
               emptyColor="gray.200"

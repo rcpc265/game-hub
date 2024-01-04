@@ -1,3 +1,4 @@
+import usePlatform from "@/hooks/usePlatform";
 import usePlatforms from "@/hooks/usePlatforms";
 import { Platform } from "@/services/platformService";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
@@ -9,11 +10,9 @@ interface Props {
 }
 
 const PlatformSelector = ({ selectedPlatformId, onSelectPlatform }: Props) => {
-  const {
-    data: { results: platforms },
-  } = usePlatforms();
+  const { data } = usePlatforms();
 
-  const selectedPlatform = platforms.find((p) => p.id === selectedPlatformId);
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
   return (
     <Menu>
@@ -21,7 +20,7 @@ const PlatformSelector = ({ selectedPlatformId, onSelectPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {platforms?.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             fontWeight={platform.id === selectedPlatformId ? "bold" : "normal"}
             key={platform.id}

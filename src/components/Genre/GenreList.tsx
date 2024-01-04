@@ -10,10 +10,7 @@ export interface GenreListProps {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
-  const {
-    data: { results: genres },
-    isLoading,
-  } = useGenres();
+  const { data, isLoading } = useGenres();
   const skeletons = Array.from({ length: 20 }).map((_, index) => (
     <GenreItemSkeleton key={index} />
   ));
@@ -25,7 +22,7 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
       </Heading>
       <List>
         {isLoading && skeletons}
-        {genres?.map((genre) => (
+        {data?.results.map((genre) => (
           <GenreItem
             selectedGenreId={selectedGenreId}
             onSelectGenre={onSelectGenre}
