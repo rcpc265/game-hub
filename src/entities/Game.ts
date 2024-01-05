@@ -1,6 +1,6 @@
-import { Platform } from "@/entities/Platform";
-import { Genre } from "./Genre";
-import { Publisher } from "./Publisher";
+import { Platform } from "@/entities";
+import { Genre } from "@/entities";
+import { Publisher } from "@/entities";
 
 export interface Game {
   id: number;

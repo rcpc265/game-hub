@@ -5,7 +5,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const InfoCard = ({ title, children }: Props) => (
+const GameInfoCard = ({ title, children }: Props) => (
   <Box>
     <Heading as="dt" color="gray.600" fontSize="md">
       {title}
@@ -16,4 +16,4 @@ const InfoCard = ({ title, children }: Props) => (
   </Box>
 );
 
-export default InfoCard;
+export default GameInfoCard;
