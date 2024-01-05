@@ -1,4 +1,5 @@
 import ExpandableText from "@/components/ExpandableText";
+import GameAttributes from "@/components/GameAttributes";
 import useGame from "@/hooks/useGame";
 import { Box, Heading, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
@@ -16,6 +17,7 @@ const GameDetailPage = () => {
       <Box mt={3}>
         <ExpandableText>{game.description_raw}</ExpandableText>
       </Box>
+      <GameAttributes game={game} />
     </>
   );
 };
