@@ -5,7 +5,15 @@ import {
 } from "@/components/Game";
 import type { Game } from "@/entities/Game";
 import transformToCroppedImageUrl from "@/services/image-url";
-import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Image,
+  Skeleton,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -16,10 +24,13 @@ const GameCard = ({ game }: Props) => {
   return (
     <GameCardContainer>
       <Card>
-        <Image
-          min-h="170px"
-          src={transformToCroppedImageUrl(game.background_image)}
-        />
+        <Link to={"/games/" + game.slug}>
+          <Box minH="170px">
+            <Skeleton isLoaded={!!game.background_image}>
+              <Image src={transformToCroppedImageUrl(game.background_image)} />
+            </Skeleton>
+          </Box>
+        </Link>
         <CardBody>
           <HStack justifyContent="space-between" marginBottom={3}>
             <PlatformIconList
