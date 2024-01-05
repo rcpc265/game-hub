@@ -1,5 +1,5 @@
 import useIsOverflow from "@/hooks/useIsOverflow";
-import type { Genre } from "@/services/genreService";
+import type { Genre } from "@/entities/Genre";
 import transformToCroppedImageUrl from "@/services/image-url";
 import useGameQueryStore from "@/store";
 import {
