@@ -1,7 +1,7 @@
-import useGenres from "./useGenres";
+import useAllGenres from "./useAllGenres";
 
 const useGenre = (id?: number) => {
-  const { data } = useGenres();
+  const { data } = useAllGenres();
   return data?.results.find((p) => p.id === id);
 };
 

@@ -1,10 +1,10 @@
-import useGenres from "@/hooks/useGenres";
+import useAllGenres from "@/hooks/useAllGenres";
 import { Heading, List } from "@chakra-ui/react";
 import GenreItem from "./GenreItem";
 import { GenreItemSkeleton } from ".";
 
 const GenreList = () => {
-  const { data, isLoading } = useGenres();
+  const { data, isLoading } = useAllGenres();
 
   const skeletons = Array.from({ length: 20 }).map((_, index) => (
     <GenreItemSkeleton key={index} />
@@ -18,10 +18,7 @@ const GenreList = () => {
       <List>
         {isLoading && skeletons}
         {data?.results.map((genre) => (
-          <GenreItem
-            key={genre.id}
-            genre={genre}
-          />
+          <GenreItem key={genre.id} genre={genre} />
         ))}
       </List>
     </>

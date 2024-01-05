@@ -1,5 +1,5 @@
 import { GameCard, GameCardSkeleton } from "@/components/Game";
-import useGames from "@/hooks/useGames";
+import useAllGames from "@/hooks/useAllGames";
 import { HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -9,7 +9,7 @@ const Skeletons = ({ count = 20 }) =>
   ));
 
 const GameGrid = () => {
-  const { data, error, fetchNextPage, hasNextPage, isLoading } = useGames();
+  const { data, error, fetchNextPage, hasNextPage, isLoading } = useAllGames();
   const games = data?.pages.flatMap((page) => page.results);
 
   if (error) return <Text>{error.message}</Text>;

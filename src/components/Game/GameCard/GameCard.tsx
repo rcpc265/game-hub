@@ -6,6 +6,7 @@ import {
 import type { Game } from "@/services/gameService";
 import transformToCroppedImageUrl from "@/services/image-url";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -27,7 +28,7 @@ const GameCard = ({ game }: Props) => {
             <CriticScore score={game.metacritic} />
           </HStack>
           <Heading fontSize="2xl" noOfLines={1}>
-            {game.name}
+            <Link to={"/games/" + game.slug}>{game.name}</Link>
           </Heading>
         </CardBody>
       </Card>

@@ -3,7 +3,7 @@ import gameService, { Game } from "@/services/gameService";
 import useGameQueryStore from "@/store";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-const useGames = () => {
+const useAllGames = () => {
   const gameQuery = useGameQueryStore((state) => state.gameQuery);
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
@@ -24,4 +24,4 @@ const useGames = () => {
   });
 };
 
-export default useGames;
+export default useAllGames;
